@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Flask</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        form { max-width: 300px; margin: auto; }
+        input, select, button { margin-top: 10px; width: 100%; padding: 10px; }
+        .result, .error { margin-top: 20px; text-align: center; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Calculadora Web</h2>
+    <form method="POST">
+        <input type="text" name="num1" placeholder="Primer número" required>
+        <input type="text" name="num2" placeholder="Segundo número" required>
+        <select name="operation" required>
+            <option value="add">Suma</option>
+            <option value="subtract">Resta</option>
+            <option value="multiply">Multiplicación</option>
+            <option value="divide">División</option>
+        </select>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if result is not none %}
+        <div class="result">
+            <h3>Resultado: {{ result }}</h3>
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error">
+            <h4>{{ error }}</h4>
+        </div>
+    {% endif %}
+</body>
+</html>
+
